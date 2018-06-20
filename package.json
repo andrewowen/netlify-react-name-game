@@ -1,0 +1,23 @@
+{
+  "name": "wt-name-game-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-card-flip": "^0.2.1",
+    "react-dom": "^16.2.0",
+    "react-timer-component": "^1.0.2"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.68.0",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "flow": "flow status",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

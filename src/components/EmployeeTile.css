@@ -1,0 +1,21 @@
+.game-tile-front {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #22262e, #58565f, #f5f5f5);
+  max-height: 200px;
+  height: 200px;
+  max-width: 200px;
+  min-width: 100px;
+  transition: all 0.2s ease-in-out;
+}
+
+.game-tile-back {
+  background-color: white;
+  border-radius: 10px;
+  background-image: url("../assets/images/headshot_ashby_bowles.jpg");
+  height: 200px;
+  max-width: 200px;
+  transition: scale 0.2s ease-in-out;
+}
