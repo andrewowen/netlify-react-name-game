@@ -1,7 +1,9 @@
 .game-board-container {
   display: grid;
-  grid-area: 2 / 1 / 5 / 5;
   grid-gap: 10px;
+  justify-content: space-between;
+  grid-column: 2 / 6;
+  grid-auto-rows: 200px;
   grid-template-columns: repeat(auto-fill, 200px);
-  grid-template-rows: repeat(auto-fill, 200px);
+  grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
 }
