@@ -1,26 +1,16 @@
-import React, { Component } from "react";
-import "./App.css";
-import Header from "./Header";
-import GameBoard from "./GameBoard";
-import { handleData } from "../helpers";
+import React, { Component } from 'react';
+import './App.css';
+import Header from './Header';
+import GameBoard from './GameBoard';
 
 class App extends Component {
-  state = {
-    staff: []
-  };
-
-  componentWillMount = async () => {
-    const staff = await handleData();
-    this.setState({
-      staff
-    });
-  };
+  componentWillMount = async () => {};
 
   render() {
     return (
       <div className="container">
         <Header />
-        <GameBoard staff={this.state.staff} />
+        <GameBoard />
       </div>
     );
   }
