@@ -1,4 +1,4 @@
-const shuffle = arra1 => {
+export const shuffle = arra1 => {
   let ctr = arra1.length;
   let temp;
   let index;
@@ -17,15 +17,21 @@ const shuffle = arra1 => {
   return arra1;
 };
 
-export const handleData = async () => {
-  let allEmployees = await (await fetch(
-    "https://willowtreeapps.com/api/v1.0/profiles"
-  )).json();
-  let sixRandomEmployees = shuffle(allEmployees)
-    .slice(0, 6)
-    .map(element => {
-      return [element, element];
-    })
-    .reduce((acc, val) => acc.concat(val), []);
-  return shuffle(sixRandomEmployees);
+export const fetchData = async (url, options) => {
+  let cacheKey = url;
+  let cached = sessionStorage.getItem(cacheKey);
+  if (cached !== null) {
+    let response = new Response(new Blob([cached]));
+    return Promise.resolve(response);
+  }
+
+  let response = await (await fetch(url)).json();
+  if (response.status === 200) {
+    let ct = response.headers.get('Content-Type');
+    if (ct && (ct.match(/application\/json/i) || ct.match(/text\//i))) {
+      let content = await response.clone().text();
+      sessionStorage.setItem(cacheKey, content);
+    }
+  }
+  return response;
 };
