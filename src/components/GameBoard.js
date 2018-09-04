@@ -18,7 +18,7 @@ class GameBoard extends React.Component {
     console.log('clicked!');
     // flip tile
     const matchedEmployees = [...this.state.matchedEmployees, key];
-    // if this is the first time the game has been started, 
+    // if this is the first time the game has been started,
     // set last flipped tile to the currently selected tile.
     if (this.state.lastFlipped === '') {
       this.setState({
@@ -76,6 +76,21 @@ class GameBoard extends React.Component {
       numFlipped: 0,
       readyToClick: true
     });
+    if (matchedEmployees.length === 12) {
+      this.handleReset();
+    }
+  };
+
+  handleReset = () => {
+    this.setState(
+      {
+        matchedEmployees: [],
+        lastFlipped: '',
+        currentlyFlipped: '',
+        numFlipped: 0
+      },
+      this.shuffleStaff
+    );
   };
 
   shuffleStaff = () => {
@@ -113,11 +128,9 @@ class GameBoard extends React.Component {
             details={this.state.shuffledStaff[key]}
             isFlipped={this.state.matchedEmployees.includes(key)}
             handleFlip={this.handleFlip}
-            handleFlipBack={this.handleFlipBack}
             readyToClick={this.state.readyToClick}
           />
         ))}
-        <button onClick={this.shuffleEmployees}>CLick</button>
       </div>
     );
   }
