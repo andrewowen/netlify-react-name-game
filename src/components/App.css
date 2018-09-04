@@ -1,5 +1,4 @@
 #root {
-  display: grid;
   min-height: calc(100vh);
   min-width: calc(100vw - 100px);
   justify-content: center;
@@ -27,7 +26,7 @@ body {
   grid-gap: 10px;
   align-content: center;
   grid-template-rows: repeat(auto-fill, 200px);
-  grid-template-columns: repeat(4, 200px);
+  grid-template-columns: 2fr repeat(4, 1fr) 2fr;
 }
 
 .item {
