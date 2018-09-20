@@ -1,5 +1,4 @@
 #root {
-  display: grid;
   min-height: calc(100vh);
   min-width: calc(100vw - 100px);
   justify-content: center;
