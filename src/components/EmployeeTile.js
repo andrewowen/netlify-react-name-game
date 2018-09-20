@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import CardFlip from 'react-card-flip';
 import './EmployeeTile.css';
 
-class EmployeeTile extends React.Component {
+class EmployeeTile extends Component {
   render() {
     const {
       details,
@@ -12,10 +12,7 @@ class EmployeeTile extends React.Component {
       readyToClick
     } = this.props;
     return (
-      <CardFlip
-        isFlipped={isFlipped}
-        style={{ height: '200px', width: '200px' }}
-      >
+      <CardFlip isFlipped={isFlipped}>
         <button
           disabled={!readyToClick}
           className="game-tile-front"
