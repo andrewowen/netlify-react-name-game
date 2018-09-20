@@ -1,15 +1,24 @@
-import React from "react";
-import "./Header.css";
+import React, { Component } from 'react';
+import './Header.css';
 
-class Header extends React.Component {
+class Header extends Component {
   render() {
+    const { currentScore, resetScore } = this.props;
     return (
       <div className="header-container">
         <h1>Name Game</h1>
-        <p>
-          Flip tiles to match faces to names! See how many you can get in 30
-          seconds!
-        </p>
+        <p>Flip tiles to match faces!</p>
+
+        <div>
+          <p>Current Score: {currentScore}</p>
+        </div>
+        <div>
+          <button className="header-reset-button" onClick={() => resetScore()}>
+            <span className="foo">
+              <h3>Reset Score</h3>
+            </span>
+          </button>
+        </div>
       </div>
     );
   }
